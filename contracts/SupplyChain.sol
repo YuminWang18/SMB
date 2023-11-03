@@ -2,26 +2,18 @@
 pragma solidity >=0.4.22 <0.9.0;
 
 contract SupplyChain {
-    //Smart Contract owner will be the person who deploys the contract only he can authorize various roles like retailer, Manufacturer,etc
     address public Owner;
 
-    //note this constructor will be called when smart contract will be deployed on blockchain
     constructor() public {
         Owner = msg.sender;
     }
-
-    //Roles (flow of pharma supply chain)
-    // RawMaterialSupplier; //This is where Manufacturer will get raw materials to make medicines
-    // Manufacturer;  //Various WHO guidelines should be followed by this person
-    // Distributor; //This guy distributes the medicines to retailers
-    // Retailer; //Normal customer buys from the retailer
-
-    //modifier to make sure only the owner is using the function
     modifier onlyByOwner() {
         require(msg.sender == Owner);
         _;
     }
-
+//Smart Contract owner will be the person who deploys the contract only he can authorize various roles like retailer, Manufacturer,etc
+//note this constructor will be called when smart contract will be deployed on blockchain
+    //modifier to make sure only the owner is using the function
     //stages of a medicine in pharma supply chain
     enum STAGE {
         Init,
