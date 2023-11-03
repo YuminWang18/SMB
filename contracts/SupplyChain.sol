@@ -11,6 +11,13 @@ contract SupplyChain {
         require(msg.sender == Owner);
         _;
     }
+    enum STAGE {
+            Init,
+            RawMaterialSupply,
+            Manufacture,
+            Distribution,
+            sold
+        }
 //Smart Contract owner will be the person who deploys the contract only he can authorize various roles like retailer, Manufacturer,etc
 //note this constructor will be called when smart contract will be deployed on blockchain
     //modifier to make sure only the owner is using the function
@@ -20,7 +27,6 @@ contract SupplyChain {
         RawMaterialSupply,
         Manufacture,
         Distribution,
-        Retail,
         sold
     }
     //using this we are going to track every single medicine the owner orders
