@@ -51,7 +51,7 @@ module.exports = {
     solc: {
       version: "0.5.1",    // truffle's version
       docker: true,       
-      settings: {          // See the solidity docs for advice about optimization and evmVersion
+      settings: {          
        optimizer: {
          enabled: false,
          runs: 200
